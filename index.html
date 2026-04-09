@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VentureCircle</title>
+  <title>VentureCircle Login</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,17 +9,20 @@
 <div class="container">
   <h1>VentureCircle</h1>
 
-  <input type="text" id="shopName" placeholder="Shop Name">
+  <input type="text" id="username" placeholder="Username">
   
+  <input type="text" id="shopName" placeholder="Shop Name">
+
   <select id="shopType">
-    <option>Grocery</option>
+    <option value="">Select Shop Type</option>
     <option>Electronics</option>
+    <option>Grocery</option>
     <option>Pharmacy</option>
   </select>
 
-  <input type="text" id="location" placeholder="Enter Location">
+  <input type="text" id="location" placeholder="Location">
 
-  <button onclick="register()">Enter Community</button>
+  <button onclick="login()">Login</button>
 </div>
 
 <script src="app.js"></script>
