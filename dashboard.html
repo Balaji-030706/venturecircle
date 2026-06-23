@@ -1,21 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>VentureCircle Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
 
-<h2>VentureCircle Dashboard</h2>
+    <!-- NAVBAR -->
 
-<input type="text" id="productName" placeholder="Product Name">
-<input type="number" id="price" placeholder="Price">
+    <nav class="dashboard-navbar">
 
-<button onclick="addProduct()">Add Product</button>
+        <div class="logo">
+            VentureCircle
+        </div>
 
-<h3>Available Products (Same Shop Type)</h3>
-<div id="productList"></div>
+        <div class="nav-right">
 
-<script src="app.js"></script>
+            <span id="welcomeUser">
+                Welcome Merchant
+            </span>
+
+            <button onclick="logoutUser()"
+                class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="dashboard-hero">
+
+        <div class="hero-overlay">
+
+            <h1>
+                Merchant Community Marketplace
+            </h1>
+
+            <p>
+                Discover inventory from nearby shopkeepers and build stronger business networks.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SEARCH BAR -->
+
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Product..."
+            onkeyup="searchProducts()">
+
+    </section>
+
+    <!-- FILTERS -->
+
+    <section class="filter-section">
+
+        <select
+            id="categoryFilter"
+            onchange="filterProducts()">
+
+            <option value="All">
+                All Categories
+            </option>
+
+            <option value="Electronics">
+                Electronics
+            </option>
+
+            <option value="Grocery">
+                Grocery
+            </option>
+
+            <option value="Pharmacy">
+                Pharmacy
+            </option>
+
+            <option value="Hardware">
+                Hardware
+            </option>
+
+        </select>
+
+        <select
+            id="locationFilter"
+            onchange="filterProducts()">
+
+            <option value="All">
+                All Locations
+            </option>
+
+            <option value="Chennai">
+                Chennai
+            </option>
+
+            <option value="Coimbatore">
+                Coimbatore
+            </option>
+
+            <option value="Madurai">
+                Madurai
+            </option>
+
+        </select>
+
+    </section>
+
+    <!-- ADD PRODUCT -->
+
+    <section class="add-product-container">
+
+        <h2>
+            Upload Product
+        </h2>
+
+        <input
+            type="text"
+            id="productName"
+            placeholder="Product Name">
+
+        <input
+            type="number"
+            id="productPrice"
+            placeholder="Product Price">
+
+        <input
+            type="text"
+            id="productImage"
+            placeholder="Paste Product Image URL">
+
+        <textarea
+            id="productDescription"
+            placeholder="Product Description">
+        </textarea>
+
+        <button
+            class="primary-btn"
+            onclick="addProduct()">
+
+            Upload Product
+
+        </button>
+
+    </section>
+
+    <!-- PRODUCT GRID -->
+
+    <section class="products-section">
+
+        <h2>
+            Available Products
+        </h2>
+
+        <div id="productList"
+            class="product-grid">
+
+        </div>
+
+    </section>
+
+    <!-- CART -->
+
+    <aside class="cart-sidebar">
+
+        <h2>
+            My Cart
+        </h2>
+
+        <div id="cartItems">
+
+        </div>
+
+        <div class="cart-footer">
+
+            <h3 id="cartTotal">
+                Total : ₹0
+            </h3>
+
+        </div>
+
+    </aside>
+
+    <!-- PRODUCT MODAL -->
+
+    <div id="productModal"
+        class="modal">
+
+        <div class="modal-content">
+
+            <span
+                class="close-btn"
+                onclick="closeModal()">
+
+                &times;
+
+            </span>
+
+            <img
+                id="modalImage"
+                class="modal-image">
+
+            <h2
+                id="modalName">
+            </h2>
+
+            <p
+                id="modalDescription">
+            </p>
+
+            <h3
+                id="modalPrice">
+            </h3>
+
+            <p
+                id="modalShop">
+            </p>
+
+            <p
+                id="modalContact">
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="addToCart()">
+
+                Add To Cart
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ACTIVITY SECTION -->
+
+    <section class="activity-section">
+
+        <h2>
+            Recent Activity
+        </h2>
+
+        <div id="activityContainer">
+
+        </div>
+
+    </section>
+
+    <!-- COMMUNITY SECTION -->
+
+    <section class="community-section">
+
+        <h2>
+            Registered Shopkeepers
+        </h2>
+
+        <div id="merchantContainer">
+
+        </div>
+
+    </section>
+
+    <!-- FLOATING BUTTON -->
+
+    <button
+        class="floating-btn"
+        onclick="scrollToTop()">
+
+        ↑
+
+    </button>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h3>
+                VentureCircle
+            </h3>
+
+            <p>
+                Building stronger merchant communities through collaboration.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPT -->
+
+    <script src="app.js"></script>
+
+    <script>
+
+        function scrollToTop() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+    </script>
+
 </body>
+
 </html>

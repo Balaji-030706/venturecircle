@@ -1,0 +1,129 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@test.com",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2026-01-10"
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "email": "john@test.com",
+      "role": "user",
+      "status": "active",
+      "createdAt": "2026-02-12"
+    },
+    {
+      "id": 3,
+      "name": "Jane Smith",
+      "email": "jane@test.com",
+      "role": "user",
+      "status": "inactive",
+      "createdAt": "2026-03-05"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 101,
+      "title": "Wireless Headphones",
+      "description": "Noise cancelling over-ear headphones",
+      "price": 129.99,
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1518441902117-f0a1d3c0f2e0",
+      "stock": 25,
+      "rating": 4.5,
+      "status": "active"
+    },
+    {
+      "id": 102,
+      "title": "Smart Watch",
+      "description": "Fitness tracking smartwatch",
+      "price": 199.99,
+      "category": "electronics",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+      "stock": 18,
+      "rating": 4.3,
+      "status": "active"
+    },
+    {
+      "id": 103,
+      "title": "Gaming Mouse",
+      "description": "High precision RGB gaming mouse",
+      "price": 49.99,
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1527814050087-3793815479db",
+      "stock": 40,
+      "rating": 4.7,
+      "status": "active"
+    },
+    {
+      "id": 104,
+      "title": "Mechanical Keyboard",
+      "description": "RGB mechanical keyboard for gaming",
+      "price": 89.99,
+      "category": "accessories",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      "stock": 30,
+      "rating": 4.6,
+      "status": "inactive"
+    }
+  ],
+
+  "cart": [
+    {
+      "userId": 2,
+      "items": [
+        {
+          "productId": 101,
+          "quantity": 1
+        },
+        {
+          "productId": 103,
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+
+  "merchant": [
+    {
+      "id": 201,
+      "name": "TechZone Store",
+      "rating": 4.8,
+      "productsCount": 120,
+      "location": "Singapore"
+    },
+    {
+      "id": 202,
+      "name": "Gadget Hub",
+      "rating": 4.6,
+      "productsCount": 85,
+      "location": "Online"
+    },
+    {
+      "id": 203,
+      "name": "NextGen Electronics",
+      "rating": 4.7,
+      "productsCount": 95,
+      "location": "Singapore"
+    }
+  ],
+
+  "analytics": {
+    "totalUsers": 3,
+    "totalProducts": 4,
+    "totalSales": 1250,
+    "revenue": 48990,
+    "activities": [
+      "Admin created system",
+      "User John logged in",
+      "Product Wireless Headphones added",
+      "Order placed by John",
+      "Cart updated for user Jane"
+    ]
+  }
+}

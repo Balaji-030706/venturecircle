@@ -1,30 +1,222 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>VentureCircle Login</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentureCircle - Shopkeeper Community</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-<div class="container">
-  <h1>VentureCircle</h1>
+    <!-- Navigation -->
 
-  <input type="text" id="username" placeholder="Username">
-  
-  <input type="text" id="shopName" placeholder="Shop Name">
+    <nav class="navbar">
 
-  <select id="shopType">
-    <option value="">Select Shop Type</option>
-    <option>Electronics</option>
-    <option>Grocery</option>
-    <option>Pharmacy</option>
-  </select>
+        <div class="logo">
+            VentureCircle
+        </div>
 
-  <input type="text" id="location" placeholder="Location">
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
 
-  <button onclick="login()">Login</button>
-</div>
+    </nav>
 
-<script src="app.js"></script>
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Connect With Nearby Shopkeepers
+            </h1>
+
+            <p>
+                Discover products, share inventory, expand business networks,
+                and build a powerful merchant community.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Authentication Container -->
+
+    <section class="auth-container">
+
+        <!-- Toggle Buttons -->
+
+        <div class="auth-toggle">
+
+            <button id="loginTab" class="active-tab"
+                onclick="showLogin()">
+                Login
+            </button>
+
+            <button id="registerTab"
+                onclick="showRegister()">
+                Register
+            </button>
+
+        </div>
+
+        <!-- Error Box -->
+
+        <div id="errorBox" class="error-box"></div>
+
+        <!-- Login Form -->
+
+        <div id="loginForm">
+
+            <h2>Shopkeeper Login</h2>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter Email">
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter Password">
+
+            <button
+                class="primary-btn"
+                onclick="loginUser()">
+                Login
+            </button>
+
+        </div>
+
+        <!-- Register Form -->
+
+        <div id="registerForm" style="display:none;">
+
+            <h2>Create Account</h2>
+
+            <input
+                type="text"
+                id="registerName"
+                placeholder="Shopkeeper Name">
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Email Address">
+
+            <input
+                type="tel"
+                id="registerMobile"
+                placeholder="Mobile Number">
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Password">
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm Password">
+
+            <button
+                class="primary-btn"
+                onclick="registerUser()">
+                Register
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
+
+            <h3>Inventory Sharing</h3>
+
+            <p>
+                Find products from nearby merchants instantly.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
+
+            <h3>Merchant Network</h3>
+
+            <p>
+                Connect with shops in the same business category.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png">
+
+            <h3>Location Based</h3>
+
+            <p>
+                Discover nearby inventory through location mapping.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 VentureCircle. All Rights Reserved.
+        </p>
+
+    </footer>
+
+    <!-- JS -->
+
+    <script>
+
+        function showLogin() {
+
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registerForm").style.display = "none";
+
+            document.getElementById("loginTab").classList.add("active-tab");
+            document.getElementById("registerTab").classList.remove("active-tab");
+        }
+
+        function showRegister() {
+
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registerForm").style.display = "block";
+
+            document.getElementById("registerTab").classList.add("active-tab");
+            document.getElementById("loginTab").classList.remove("active-tab");
+        }
+
+    </script>
+
+    <script src="app.js"></script>
+
 </body>
+
 </html>
