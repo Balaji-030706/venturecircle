@@ -1,222 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VentureCircle - Shopkeeper Community</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="VentureCircle - Connect local shopkeepers, discover products and grow your business.">
+
+    <meta name="theme-color"
+          content="#2563eb">
+
+    <title>VentureCircle | Login & Register</title>
 
     <link rel="stylesheet" href="style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
 </head>
 
-<body>
+<body class="auth-page">
 
-    <!-- Navigation -->
+<!-- =====================================================
+     AUTHENTICATION APPLICATION
+===================================================== -->
 
-    <nav class="navbar">
+<div class="auth-wrapper">
 
-        <div class="logo">
-            VentureCircle
+    <!-- =================================================
+         LEFT BRAND PANEL
+    ================================================== -->
+
+    <section class="auth-brand-panel">
+
+        <div class="auth-brand-content">
+
+            <a href="index.html" class="brand auth-brand">
+
+                <div class="brand-logo">
+                    VC
+                </div>
+
+                <div class="brand-text">
+
+                    <strong>
+                        VentureCircle
+                    </strong>
+
+                    <span>
+                        Connect • Discover • Grow
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <div class="auth-hero-content">
+
+                <span class="hero-badge">
+                    🚀 Local Business Network
+                </span>
+
+                <h1>
+                    Connect.
+                    <span>Discover.</span>
+                    Grow.
+                </h1>
+
+                <p>
+                    VentureCircle brings local shopkeepers
+                    together on one intelligent platform to
+                    discover products, connect with merchants
+                    and grow their businesses.
+                </p>
+
+            </div>
+
+
+            <!-- =========================================
+                 BENEFITS
+            ========================================== -->
+
+            <div class="auth-benefits">
+
+                <div class="auth-benefit">
+
+                    <div class="auth-benefit-icon">
+                        📍
+                    </div>
+
+                    <div>
+                        <strong>
+                            Discover Nearby Shops
+                        </strong>
+
+                        <span>
+                            Find merchants based on location
+                            and business category.
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <div class="auth-benefit-icon">
+                        🛍
+                    </div>
+
+                    <div>
+                        <strong>
+                            Explore Products
+                        </strong>
+
+                        <span>
+                            Browse products, prices and
+                            availability from local shops.
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="auth-benefit">
+
+                    <div class="auth-benefit-icon">
+                        🤝
+                    </div>
+
+                    <div>
+                        <strong>
+                            Connect Directly
+                        </strong>
+
+                        <span>
+                            Contact shopkeepers and build
+                            valuable business connections.
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Community</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
 
-    </nav>
+        <!-- Decorative shapes -->
 
-    <!-- Hero Section -->
+        <div class="auth-decoration decoration-one"></div>
 
-    <section class="hero">
+        <div class="auth-decoration decoration-two"></div>
 
-        <div class="hero-content">
+        <div class="auth-decoration decoration-three"></div>
 
-            <h1>
-                Connect With Nearby Shopkeepers
-            </h1>
+    </section>
 
-            <p>
-                Discover products, share inventory, expand business networks,
-                and build a powerful merchant community.
-            </p>
+
+    <!-- =================================================
+         RIGHT AUTH PANEL
+    ================================================== -->
+
+    <section class="auth-form-panel">
+
+        <div class="auth-form-container">
+
+
+            <!-- =========================================
+                 LOGIN FORM
+            ========================================== -->
+
+            <div
+                id="loginView"
+                class="auth-view active"
+            >
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        WELCOME BACK
+                    </span>
+
+                    <h2>
+                        Sign in to VentureCircle
+                    </h2>
+
+                    <p>
+                        Access your shopkeeper account
+                        and continue managing your business.
+                    </p>
+
+                </div>
+
+
+                <!-- LOGIN ERROR -->
+
+                <div
+                    id="loginError"
+                    class="auth-alert auth-alert-error"
+                    role="alert"
+                    aria-live="polite"
+                >
+                    <span>
+                        ⚠️
+                    </span>
+
+                    <span id="loginErrorMessage">
+                        Invalid Credential. Check Email or Password.
+                    </span>
+                </div>
+
+
+                <!-- LOGIN SUCCESS -->
+
+                <div
+                    id="loginSuccess"
+                    class="auth-alert auth-alert-success"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <span>
+                        ✓
+                    </span>
+
+                    <span>
+                        Login successful. Redirecting...
+                    </span>
+                </div>
+
+
+                <form
+                    id="loginForm"
+                    novalidate
+                >
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉️
+                            </span>
+
+                            <input
+                                type="email"
+                                id="loginEmail"
+                                name="email"
+                                class="form-control auth-input"
+                                placeholder="Enter your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="loginEmailError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <div class="password-label-row">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+                            <button
+                                type="button"
+                                class="forgot-password"
+                                id="forgotPasswordBtn"
+                            >
+                                Forgot Password?
+                            </button>
+
+                        </div>
+
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                name="password"
+                                class="form-control auth-input"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="loginPassword"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="loginPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- REMEMBER -->
+
+                    <div class="remember-row">
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                id="rememberMe"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- LOGIN BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary auth-submit"
+                        id="loginBtn"
+                    >
+
+                        <span class="button-text">
+                            Sign In
+                        </span>
+
+                        <span
+                            class="button-loader"
+                            hidden
+                        >
+                            <span class="spinner"></span>
+                            Signing In...
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- REGISTER -->
+
+                <div class="auth-switch">
+
+                    <span>
+                        Don't have an account?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="showRegisterBtn"
+                        class="auth-switch-button"
+                    >
+                        Create Account
+                    </button>
+
+                </div>
+
+
+                <div class="auth-divider">
+                    <span>
+                        OR
+                    </span>
+                </div>
+
+
+                <!-- DEMO ACCESS -->
+
+                <button
+                    type="button"
+                    id="demoLoginBtn"
+                    class="demo-login-button"
+                >
+                    🚀 Explore Demo VentureCircle
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 REGISTER FORM
+            ========================================== -->
+
+            <div
+                id="registerView"
+                class="auth-view"
+            >
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        JOIN VENTURECIRCLE
+                    </span>
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p>
+                        Register your business and connect
+                        with nearby merchants.
+                    </p>
+
+                </div>
+
+
+                <!-- REGISTER ERROR -->
+
+                <div
+                    id="registerError"
+                    class="auth-alert auth-alert-error"
+                    role="alert"
+                    aria-live="polite"
+                >
+
+                    <span>
+                        ⚠️
+                    </span>
+
+                    <span id="registerErrorMessage">
+                        Please check your information.
+                    </span>
+
+                </div>
+
+
+                <!-- REGISTER SUCCESS -->
+
+                <div
+                    id="registerSuccess"
+                    class="auth-alert auth-alert-success"
+                    role="status"
+                    aria-live="polite"
+                >
+
+                    <span>
+                        ✓
+                    </span>
+
+                    <span id="registerSuccessMessage">
+                        Registration successful.
+                    </span>
+
+                </div>
+
+
+                <form
+                    id="registerForm"
+                    novalidate
+                >
+
+                    <!-- ACCOUNT TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Account Type
+                        </label>
+
+                        <div class="account-type-grid">
+
+                            <label class="account-type-card">
+
+                                <input
+                                    type="radio"
+                                    name="accountType"
+                                    value="Shopkeeper"
+                                    checked
+                                >
+
+                                <span class="account-type-content">
+
+                                    <span class="account-type-icon">
+                                        🏪
+                                    </span>
+
+                                    <span>
+                                        <strong>
+                                            Shopkeeper
+                                        </strong>
+
+                                        <small>
+                                            Manage my shop
+                                        </small>
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                            <label class="account-type-card">
+
+                                <input
+                                    type="radio"
+                                    name="accountType"
+                                    value="Merchant"
+                                >
+
+                                <span class="account-type-content">
+
+                                    <span class="account-type-icon">
+                                        💼
+                                    </span>
+
+                                    <span>
+                                        <strong>
+                                            Merchant
+                                        </strong>
+
+                                        <small>
+                                            Source products
+                                        </small>
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- NAME -->
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                name="name"
+                                class="form-control auth-input"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="registerNameError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- BUSINESS NAME -->
+
+                    <div class="form-group">
+
+                        <label for="registerBusiness">
+                            Business / Shop Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🏪
+                            </span>
+
+                            <input
+                                type="text"
+                                id="registerBusiness"
+                                name="business"
+                                class="form-control auth-input"
+                                placeholder="Enter shop or business name"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="registerBusinessError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            Email Address
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                ✉️
+                            </span>
+
+                            <input
+                                type="email"
+                                id="registerEmail"
+                                name="email"
+                                class="form-control auth-input"
+                                placeholder="example@email.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="registerEmailError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- EMAIL VERIFICATION -->
+
+                    <div
+                        id="emailVerificationArea"
+                        class="verification-area"
+                    >
+
+                        <div class="verification-header">
+
+                            <div>
+
+                                <strong>
+                                    Email Verification
+                                </strong>
+
+                                <small>
+                                    Verify your email before registration
+                                </small>
+
+                            </div>
+
+                            <span class="verification-status">
+                                Not Verified
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="sendVerificationBtn"
+                            class="verification-button"
+                        >
+                            📧 Send Verification Code
+                        </button>
+
+
+                        <div
+                            id="verificationCodeArea"
+                            class="verification-code-area"
+                        >
+
+                            <label for="verificationCode">
+                                Verification Code
+                            </label>
+
+                            <div class="verification-input-row">
+
+                                <input
+                                    type="text"
+                                    id="verificationCode"
+                                    maxlength="6"
+                                    placeholder="Enter 6-digit code"
+                                    inputmode="numeric"
+                                >
+
+                                <button
+                                    type="button"
+                                    id="verifyEmailBtn"
+                                    class="btn btn-primary"
+                                >
+                                    Verify
+                                </button>
+
+                            </div>
+
+                            <small
+                                id="verificationMessage"
+                                class="verification-message"
+                            ></small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- MOBILE -->
+
+                    <div class="form-group">
+
+                        <label for="registerMobile">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                📱
+                            </span>
+
+                            <input
+                                type="tel"
+                                id="registerMobile"
+                                name="mobile"
+                                class="form-control auth-input"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                        <small
+                            id="registerMobileError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                name="password"
+                                class="form-control auth-input"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="registerPassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                        <div
+                            id="passwordStrength"
+                            class="password-strength"
+                        >
+
+                            <div class="strength-bar">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+                            <small id="passwordStrengthText">
+                                Enter a password
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONFIRM PASSWORD -->
+
+                    <div class="form-group">
+
+                        <label for="registerConfirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔐
+                            </span>
+
+                            <input
+                                type="password"
+                                id="registerConfirmPassword"
+                                name="confirmPassword"
+                                class="form-control auth-input"
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="registerConfirmPassword"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="registerConfirmPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <!-- TERMS -->
+
+                    <div class="terms-row">
+
+                        <label class="checkbox-label">
+
+                            <input
+                                type="checkbox"
+                                id="termsAgreement"
+                                required
+                            >
+
+                            <span>
+                                I agree to the
+                                <a href="#">
+                                    Terms & Conditions
+                                </a>
+                                and
+                                <a href="#">
+                                    Privacy Policy
+                                </a>
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+                    <!-- REGISTER BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary auth-submit"
+                        id="registerBtn"
+                    >
+
+                        <span class="button-text">
+                            Create VentureCircle Account
+                        </span>
+
+                        <span
+                            class="button-loader"
+                            hidden
+                        >
+
+                            <span class="spinner"></span>
+
+                            Creating Account...
+
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- LOGIN SWITCH -->
+
+                <div class="auth-switch">
+
+                    <span>
+                        Already have an account?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="showLoginBtn"
+                        class="auth-switch-button"
+                    >
+                        Sign In
+                    </button>
+
+                </div>
+
+            </div>
+
 
         </div>
 
     </section>
 
-    <!-- Authentication Container -->
+</div>
 
-    <section class="auth-container">
 
-        <!-- Toggle Buttons -->
+<!-- =====================================================
+     FORGOT PASSWORD MODAL
+===================================================== -->
 
-        <div class="auth-toggle">
+<div
+    id="forgotPasswordModal"
+    class="modal-overlay"
+>
 
-            <button id="loginTab" class="active-tab"
-                onclick="showLogin()">
-                Login
-            </button>
+    <div class="modal auth-modal">
 
-            <button id="registerTab"
-                onclick="showRegister()">
-                Register
-            </button>
+        <button
+            type="button"
+            class="modal-close"
+            id="closeForgotPassword"
+            aria-label="Close"
+        >
+            ×
+        </button>
 
-        </div>
 
-        <!-- Error Box -->
+        <div class="auth-modal-content">
 
-        <div id="errorBox" class="error-box"></div>
+            <div class="modal-icon">
+                🔐
+            </div>
 
-        <!-- Login Form -->
+            <h2>
+                Reset Your Password
+            </h2>
 
-        <div id="loginForm">
+            <p>
+                Enter your registered email address
+                and we will help you recover your account.
+            </p>
 
-            <h2>Shopkeeper Login</h2>
 
-            <input
-                type="email"
-                id="loginEmail"
-                placeholder="Enter Email">
+            <div class="form-group">
 
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Enter Password">
+                <label for="resetEmail">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="resetEmail"
+                    class="form-control"
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+
+            <div
+                id="resetMessage"
+                class="auth-alert"
+            >
+            </div>
+
 
             <button
-                class="primary-btn"
-                onclick="loginUser()">
-                Login
+                type="button"
+                id="resetPasswordBtn"
+                class="btn btn-primary"
+                style="width:100%;"
+            >
+                Send Reset Instructions
             </button>
 
         </div>
 
-        <!-- Register Form -->
+    </div>
 
-        <div id="registerForm" style="display:none;">
+</div>
 
-            <h2>Create Account</h2>
 
-            <input
-                type="text"
-                id="registerName"
-                placeholder="Shopkeeper Name">
+<!-- =====================================================
+     GLOBAL TOAST
+===================================================== -->
 
-            <input
-                type="email"
-                id="registerEmail"
-                placeholder="Email Address">
+<div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="true"
+>
+</div>
 
-            <input
-                type="tel"
-                id="registerMobile"
-                placeholder="Mobile Number">
 
-            <input
-                type="password"
-                id="registerPassword"
-                placeholder="Password">
+<!-- =====================================================
+     AUTHENTICATION JAVASCRIPT
+===================================================== -->
 
-            <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm Password">
-
-            <button
-                class="primary-btn"
-                onclick="registerUser()">
-                Register
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- Features -->
-
-    <section class="features">
-
-        <div class="feature-card">
-
-            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png">
-
-            <h3>Inventory Sharing</h3>
-
-            <p>
-                Find products from nearby merchants instantly.
-            </p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png">
-
-            <h3>Merchant Network</h3>
-
-            <p>
-                Connect with shops in the same business category.
-            </p>
-
-        </div>
-
-        <div class="feature-card">
-
-            <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png">
-
-            <h3>Location Based</h3>
-
-            <p>
-                Discover nearby inventory through location mapping.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-
-    <footer>
-
-        <p>
-            © 2026 VentureCircle. All Rights Reserved.
-        </p>
-
-    </footer>
-
-    <!-- JS -->
-
-    <script>
-
-        function showLogin() {
-
-            document.getElementById("loginForm").style.display = "block";
-            document.getElementById("registerForm").style.display = "none";
-
-            document.getElementById("loginTab").classList.add("active-tab");
-            document.getElementById("registerTab").classList.remove("active-tab");
-        }
-
-        function showRegister() {
-
-            document.getElementById("loginForm").style.display = "none";
-            document.getElementById("registerForm").style.display = "block";
-
-            document.getElementById("registerTab").classList.add("active-tab");
-            document.getElementById("loginTab").classList.remove("active-tab");
-        }
-
-    </script>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
-
 </html>

@@ -1,250 +1,751 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>VentureCircle Dashboard</title>
+    <meta
+        name="description"
+        content="VentureCircle - Connect, discover and grow with nearby shopkeepers."
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>VentureCircle | Shopkeeper Dashboard</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <nav class="dashboard-navbar">
+<header class="main-header">
 
-        <div class="logo">
-            VentureCircle
-        </div>
+    <div class="header-container">
 
-        <div class="nav-right">
+        <a
+            href="#home"
+            class="brand"
+            data-section="home"
+        >
 
-            <span id="welcomeUser">
-                Welcome Merchant
-            </span>
+            <div class="brand-logo">
+                VC
+            </div>
 
-            <button onclick="logoutUser()"
-                class="logout-btn">
+            <div class="brand-text">
+
+                <strong>
+                    VentureCircle
+                </strong>
+
+                <span>
+                    Connect • Discover • Grow
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            class="mobile-menu-button"
+            aria-label="Open navigation"
+        >
+            ☰
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-navigation">
+
+            <a
+                href="#home"
+                class="nav-link active"
+                data-section="home"
+            >
+                🏠 Home
+            </a>
+
+            <a
+                href="#products"
+                class="nav-link"
+                data-section="products"
+            >
+                🛍 Products
+            </a>
+
+            <a
+                href="#categories"
+                class="nav-link"
+                data-section="categories"
+            >
+                📂 Categories
+            </a>
+
+            <a
+                href="#cart"
+                class="nav-link"
+                data-section="cart"
+            >
+                🛒 Cart
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+            </a>
+
+            <a
+                href="#profile"
+                class="nav-link"
+                data-section="profile"
+            >
+                👤 Profile
+            </a>
+
+        </nav>
+
+
+        <!-- USER AREA -->
+
+        <div class="header-user">
+
+            <div class="user-mini">
+
+                <div class="user-avatar">
+                    <span id="userInitial">
+                        U
+                    </span>
+                </div>
+
+                <div>
+
+                    <strong
+                        class="user-name"
+                        id="userName"
+                    >
+                        Guest
+                    </strong>
+
+                    <small>
+                        Shopkeeper
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-button"
+                id="logoutBtn"
+            >
                 Logout
             </button>
 
         </div>
 
-    </nav>
+    </div>
 
-    <!-- HERO SECTION -->
+</header>
 
-    <section class="dashboard-hero">
 
-        <div class="hero-overlay">
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HOME SECTION
+===================================================== -->
+
+<section
+    id="home"
+    class="page-section active"
+    data-page="home"
+>
+
+    <div class="hero-section">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">
+                🚀 Your Local Business Network
+            </span>
 
             <h1>
-                Merchant Community Marketplace
+                Connect Local
+                <span>Businesses.</span>
+                Grow Together.
             </h1>
 
             <p>
-                Discover inventory from nearby shopkeepers and build stronger business networks.
+                Discover products from nearby shopkeepers,
+                compare prices, connect with merchants and
+                grow your business through VentureCircle.
             </p>
 
-        </div>
 
-    </section>
+            <div class="hero-actions">
 
-    <!-- SEARCH BAR -->
+                <button
+                    class="btn btn-primary"
+                    data-section="products"
+                >
+                    Explore Products →
+                </button>
 
-    <section class="search-section">
+                <button
+                    class="btn btn-secondary"
+                    data-section="categories"
+                >
+                    Browse Categories
+                </button>
 
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search Product..."
-            onkeyup="searchProducts()">
+            </div>
 
-    </section>
 
-    <!-- FILTERS -->
+            <!-- SEARCH -->
 
-    <section class="filter-section">
+            <div class="hero-search">
 
-        <select
-            id="categoryFilter"
-            onchange="filterProducts()">
+                <span>
+                    🔍
+                </span>
 
-            <option value="All">
-                All Categories
-            </option>
+                <input
+                    type="text"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search products, shops or categories..."
+                    autocomplete="off"
+                >
 
-            <option value="Electronics">
-                Electronics
-            </option>
+                <kbd>
+                    Ctrl K
+                </kbd>
 
-            <option value="Grocery">
-                Grocery
-            </option>
-
-            <option value="Pharmacy">
-                Pharmacy
-            </option>
-
-            <option value="Hardware">
-                Hardware
-            </option>
-
-        </select>
-
-        <select
-            id="locationFilter"
-            onchange="filterProducts()">
-
-            <option value="All">
-                All Locations
-            </option>
-
-            <option value="Chennai">
-                Chennai
-            </option>
-
-            <option value="Coimbatore">
-                Coimbatore
-            </option>
-
-            <option value="Madurai">
-                Madurai
-            </option>
-
-        </select>
-
-    </section>
-
-    <!-- ADD PRODUCT -->
-
-    <section class="add-product-container">
-
-        <h2>
-            Upload Product
-        </h2>
-
-        <input
-            type="text"
-            id="productName"
-            placeholder="Product Name">
-
-        <input
-            type="number"
-            id="productPrice"
-            placeholder="Product Price">
-
-        <input
-            type="text"
-            id="productImage"
-            placeholder="Paste Product Image URL">
-
-        <textarea
-            id="productDescription"
-            placeholder="Product Description">
-        </textarea>
-
-        <button
-            class="primary-btn"
-            onclick="addProduct()">
-
-            Upload Product
-
-        </button>
-
-    </section>
-
-    <!-- PRODUCT GRID -->
-
-    <section class="products-section">
-
-        <h2>
-            Available Products
-        </h2>
-
-        <div id="productList"
-            class="product-grid">
+            </div>
 
         </div>
 
-    </section>
 
-    <!-- CART -->
+        <div class="hero-visual">
 
-    <aside class="cart-sidebar">
+            <div class="hero-card main-hero-card">
 
-        <h2>
-            My Cart
-        </h2>
+                <div class="hero-card-icon">
+                    🏪
+                </div>
 
-        <div id="cartItems">
+                <h3>
+                    Local Business Network
+                </h3>
+
+                <p>
+                    Find trusted shopkeepers around you.
+                </p>
+
+            </div>
+
+
+            <div class="floating-card card-one">
+
+                <span>
+                    📦
+                </span>
+
+                <div>
+                    <strong>
+                        Products
+                    </strong>
+
+                    <small>
+                        Available nearby
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-two">
+
+                <span>
+                    🤝
+                </span>
+
+                <div>
+                    <strong>
+                        Connect
+                    </strong>
+
+                    <small>
+                        With shopkeepers
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="floating-card card-three">
+
+                <span>
+                    📈
+                </span>
+
+                <div>
+                    <strong>
+                        Grow
+                    </strong>
+
+                    <small>
+                        Your business
+                    </small>
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="cart-footer">
+    </div>
 
-            <h3 id="cartTotal">
-                Total : ₹0
-            </h3>
 
-        </div>
+    <!-- FEATURES -->
 
-    </aside>
+    <div class="features-section">
 
-    <!-- PRODUCT MODAL -->
+        <div class="section-heading">
 
-    <div id="productModal"
-        class="modal">
-
-        <div class="modal-content">
-
-            <span
-                class="close-btn"
-                onclick="closeModal()">
-
-                &times;
-
+            <span>
+                WHY VENTURECIRCLE?
             </span>
 
-            <img
-                id="modalImage"
-                class="modal-image">
-
-            <h2
-                id="modalName">
+            <h2>
+                Everything You Need in One Place
             </h2>
 
-            <p
-                id="modalDescription">
+            <p>
+                A simple platform designed to help local
+                merchants discover opportunities.
             </p>
 
-            <h3
-                id="modalPrice">
-            </h3>
+        </div>
 
-            <p
-                id="modalShop">
-            </p>
 
-            <p
-                id="modalContact">
-            </p>
+        <div class="feature-grid">
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    📍
+                </div>
+
+                <h3>
+                    Discover Nearby
+                </h3>
+
+                <p>
+                    Find products and businesses based
+                    on location and shop category.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Smart Search
+                </h3>
+
+                <p>
+                    Quickly search products, shop names,
+                    categories and locations.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Direct Connection
+                </h3>
+
+                <p>
+                    Contact shopkeepers directly to
+                    discuss products and availability.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Easy Cart
+                </h3>
+
+                <p>
+                    Save products and manage them through
+                    the integrated shopping cart.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRODUCTS SECTION
+===================================================== -->
+
+<section
+    id="products"
+    class="page-section"
+    data-page="products"
+>
+
+    <div class="page-container">
+
+        <div class="page-header">
+
+            <div>
+
+                <span class="section-label">
+                    MARKETPLACE
+                </span>
+
+                <h1>
+                    Explore Products
+                </h1>
+
+                <p>
+                    Discover products uploaded by
+                    nearby shopkeepers.
+                </p>
+
+            </div>
+
 
             <button
-                class="primary-btn"
-                onclick="addToCart()">
+                class="btn btn-secondary"
+                data-section="home"
+            >
+                ← Back Home
+            </button>
 
-                Add To Cart
+        </div>
+
+
+        <!-- SEARCH AREA -->
+
+        <div class="marketplace-toolbar">
+
+            <div class="large-search">
+
+                <span>
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="Search products or shops..."
+                >
+
+            </div>
+
+
+            <div class="sort-area">
+
+                <label for="sortProducts">
+                    Sort
+                </label>
+
+                <select
+                    id="sortProducts"
+                    onchange="sortProducts(this.value)"
+                >
+
+                    <option value="">
+                        Recommended
+                    </option>
+
+                    <option value="newest">
+                        Newest
+                    </option>
+
+                    <option value="price-low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="price-high">
+                        Price: High to Low
+                    </option>
+
+                    <option value="name">
+                        Name
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- CATEGORY FILTER -->
+
+        <div class="category-filter">
+
+            <button
+                class="category-chip active"
+                data-category="All"
+            >
+                All
+            </button>
+
+            <button
+                class="category-chip"
+                data-category="Grocery"
+            >
+                🛒 Grocery
+            </button>
+
+            <button
+                class="category-chip"
+                data-category="Electronics"
+            >
+                💻 Electronics
+            </button>
+
+            <button
+                class="category-chip"
+                data-category="Clothing"
+            >
+                👕 Clothing
+            </button>
+
+            <button
+                class="category-chip"
+                data-category="Electrical"
+            >
+                💡 Electrical
+            </button>
+
+            <button
+                class="category-chip"
+                data-category="Fruits"
+            >
+                🍎 Fruits
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div
+            id="productContainer"
+            class="products-grid"
+        >
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES SECTION
+===================================================== -->
+
+<section
+    id="categories"
+    class="page-section"
+    data-page="categories"
+>
+
+    <div class="page-container">
+
+        <div class="page-header">
+
+            <div>
+
+                <span class="section-label">
+                    SHOP BY BUSINESS
+                </span>
+
+                <h1>
+                    Browse Categories
+                </h1>
+
+                <p>
+                    Choose a business category and
+                    discover relevant products.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="category-large-grid">
+
+            <button
+                class="category-large-card"
+                data-category="Grocery"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    🛒
+                </span>
+
+                <strong>
+                    Grocery
+                </strong>
+
+                <small>
+                    Rice, flour, groceries and more
+                </small>
+
+            </button>
+
+
+            <button
+                class="category-large-card"
+                data-category="Electronics"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    💻
+                </span>
+
+                <strong>
+                    Electronics
+                </strong>
+
+                <small>
+                    Devices, cables and accessories
+                </small>
+
+            </button>
+
+
+            <button
+                class="category-large-card"
+                data-category="Clothing"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    👕
+                </span>
+
+                <strong>
+                    Clothing
+                </strong>
+
+                <small>
+                    Fashion and apparel
+                </small>
+
+            </button>
+
+
+            <button
+                class="category-large-card"
+                data-category="Electrical"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    💡
+                </span>
+
+                <strong>
+                    Electrical
+                </strong>
+
+                <small>
+                    Electrical products and equipment
+                </small>
+
+            </button>
+
+
+            <button
+                class="category-large-card"
+                data-category="Fruits"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    🍎
+                </span>
+
+                <strong>
+                    Fruits
+                </strong>
+
+                <small>
+                    Fresh fruits and produce
+                </small>
+
+            </button>
+
+
+            <button
+                class="category-large-card"
+                data-category="All"
+                data-section="products"
+            >
+
+                <span class="category-large-icon">
+                    🌐
+                </span>
+
+                <strong>
+                    View All
+                </strong>
+
+                <small>
+                    Explore the complete marketplace
+                </small>
 
             </button>
 
@@ -252,78 +753,284 @@
 
     </div>
 
-    <!-- ACTIVITY SECTION -->
+</section>
 
-    <section class="activity-section">
 
-        <h2>
-            Recent Activity
-        </h2>
+<!-- =====================================================
+     CART SECTION
+===================================================== -->
 
-        <div id="activityContainer">
+<section
+    id="cart"
+    class="page-section"
+    data-page="cart"
+>
 
-        </div>
+    <div class="page-container">
 
-    </section>
+        <div class="page-header">
 
-    <!-- COMMUNITY SECTION -->
+            <div>
 
-    <section class="community-section">
+                <span class="section-label">
+                    YOUR SELECTION
+                </span>
 
-        <h2>
-            Registered Shopkeepers
-        </h2>
+                <h1>
+                    Shopping Cart
+                </h1>
 
-        <div id="merchantContainer">
+                <p>
+                    Review your selected products.
+                </p>
 
-        </div>
+            </div>
 
-    </section>
 
-    <!-- FLOATING BUTTON -->
-
-    <button
-        class="floating-btn"
-        onclick="scrollToTop()">
-
-        ↑
-
-    </button>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="footer-content">
-
-            <h3>
-                VentureCircle
-            </h3>
-
-            <p>
-                Building stronger merchant communities through collaboration.
-            </p>
+            <button
+                class="btn btn-secondary"
+                data-section="products"
+            >
+                Continue Shopping →
+            </button>
 
         </div>
 
-    </footer>
 
-    <!-- SCRIPT -->
+        <div
+            id="cartContainer"
+            class="cart-container"
+        >
+        </div>
 
-    <script src="app.js"></script>
+    </div>
 
-    <script>
+</section>
 
-        function scrollToTop() {
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
+<!-- =====================================================
+     PROFILE SECTION
+===================================================== -->
 
-        }
+<section
+    id="profile"
+    class="page-section"
+    data-page="profile"
+>
 
-    </script>
+    <div class="page-container">
+
+        <div class="page-header">
+
+            <div>
+
+                <span class="section-label">
+                    ACCOUNT
+                </span>
+
+                <h1>
+                    My Profile
+                </h1>
+
+                <p>
+                    Manage your VentureCircle account.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="profileContainer"
+            class="profile-container"
+        >
+        </div>
+
+
+        <!-- BUSINESS STATISTICS -->
+
+        <div class="dashboard-statistics">
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    📦
+                </span>
+
+                <div>
+
+                    <strong id="productCount">
+                        0
+                    </strong>
+
+                    <span>
+                        My Products
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    📊
+                </span>
+
+                <div>
+
+                    <strong id="totalStock">
+                        0
+                    </strong>
+
+                    <span>
+                        Total Stock
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    👥
+                </span>
+
+                <div>
+
+                    <strong id="userCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Registered Users
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span class="stat-icon">
+                    📂
+                </span>
+
+                <div>
+
+                    <strong id="categoryCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Categories
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <div class="brand-logo">
+                VC
+            </div>
+
+            <div>
+
+                <strong>
+                    VentureCircle
+                </strong>
+
+                <p>
+                    Connecting local businesses
+                    through technology.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a
+                href="#home"
+                data-section="home"
+            >
+                Home
+            </a>
+
+            <a
+                href="#products"
+                data-section="products"
+            >
+                Products
+            </a>
+
+            <a
+                href="#categories"
+                data-section="categories"
+            >
+                Categories
+            </a>
+
+            <a
+                href="#cart"
+                data-section="cart"
+            >
+                Cart
+            </a>
+
+            <a
+                href="#profile"
+                data-section="profile"
+            >
+                Profile
+            </a>
+
+        </div>
+
+
+        <div class="footer-copy">
+
+            © 2026 VentureCircle.
+            All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="app.js"></script>
 
 </body>
 
